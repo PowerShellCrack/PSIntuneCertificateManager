@@ -36,7 +36,6 @@ There are two script and I will give an explanation to each of them
 ## Not Tested but available
 
 - USGovDoD (GCCH/IL5)
-- USGovSec (IL6)
 
 ## Import Options
 
