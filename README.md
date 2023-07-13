@@ -2,8 +2,9 @@
 A PowerShell script to import multiple certificates into Intune. 
 
 ## Why use this?
-If you have ever loaded a chain of certificates for large organizations you will find it very time consuming loading their entire root chain into Intune. 
-The next problem is there is no way of knowing which certificates is exported and needs to be removed. 
+If you have ever loaded a chain of certificates for large organizations, you will find it very time consuming importing every root and intermediate certs into Intune. 
+The next problem is there is no way of knowing which certificates is expired and is no longer needed. 
+
 I developed this to resolve both of those issues.
 
 ## What it does
