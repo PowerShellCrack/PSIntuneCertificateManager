@@ -16,6 +16,8 @@ There are two script and I will give an explanation to each of them
 
 ![cert](.images/cert_description.png)
 
+![import](.images/import_runexample.png)
+
 ## Supported platforms
 
 - Windows
@@ -46,6 +48,12 @@ There are two script and I will give an explanation to each of them
 - **Exclude** - Specify what certs to exclude. String can include regex pipe for multiple (eg. RootCA1|RootCA2)
 - **JustAssignments** - NOT READY. Switch. Only removes assignment from target
 - **All** - Switch. Removes all certificates based on platform
+
+
+## Additional options:
+ 
+ - the **-WhatIf** command is supported and allows for testing prior to import or removal. 
+ - the **-Verbose** is also supported and will output additional details...however the output may not be cleanly displayed. 
 
 # Notes/Issues
 
