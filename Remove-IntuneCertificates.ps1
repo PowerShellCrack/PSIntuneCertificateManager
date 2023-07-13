@@ -35,7 +35,7 @@
 #>
 [CmdletBinding(SupportsShouldProcess)]
 param(
-    [ValidateSet('Public','USGov')]
+    [ValidateSet('Public','USGov','USDoD')]
     [string]$AzureEnvironment = 'Public',
     [ValidateSet('Windows','iOS','MacOS','AndroidASOP','AndroidAdmin','AndroidEnterprise')]
     [string]$PlatformType,
@@ -218,6 +218,7 @@ Import-Module Microsoft.Graph.Authentication
 switch($AzureEnvironment){
     'Public' {$script:GraphEndpoint = 'https://graph.microsoft.com';$GraphEnvironment = "Global"}
     'USgov' {$script:GraphEndpoint = 'https://graph.microsoft.us';$GraphEnvironment = "USgov"}
+    'USDoD' {$script:GraphEndpoint = 'https://dod-graph.microsoft.us';$GraphEnvironment = "USGovDoD"}
     default {$script:GraphEndpoint = 'https://graph.microsoft.com';$GraphEnvironment = "Global"}
 }
 

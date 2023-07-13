@@ -33,9 +33,14 @@ There are two script and I will give an explanation to each of them
 - Public (Commercial and GCC)
 - USGov (GCCH/IL4)
 
+## Not Tested but available
+
+- USGovDoD (GCCH/IL5)
+- USGovSec (IL6)
+
 ## Import Options
 
-- **AzureEnvironment** - Options are: _Public, USGov_. Defaults to _Public_
+- **AzureEnvironment** - Options are: _Public, USGov_. USDod is an option but not tested.  Defaults to _Public_
 - **PlatformType** - Options are: _Windows, iOS, MacOS, AndroidASOP, AndroidAdmin, AndroidEnterprise_. Defaults to _Windows_
 - **AssignPolicySet** - NOT READY. Provide the Policy Set or ID to assign the certificates to. 
 - **AssignAADGroup** - NOT READY. Provide the Azure AD Group or ID to assign each certificate to. If policy set is specified it will check for that assignment as well. 
@@ -44,7 +49,7 @@ There are two script and I will give an explanation to each of them
 
 ## Remove Options
 
-- **AzureEnvironment** - Options are: _Public, USGov_. Defaults to _Public_
+- **AzureEnvironment** - Options are: _Public, USGov_. USDod is an option but not tested. Defaults to _Public_
 - **PlatformType** - Options are: _Windows, iOS, MacOS, AndroidASOP, AndroidAdmin, AndroidEnterprise_. Defaults to _Windows_
 - **Exclude** - Specify what certs to exclude. String can include regex pipe for multiple (eg. RootCA1|RootCA2)
 - **JustAssignments** - NOT READY. Switch. Only removes assignment from target
