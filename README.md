@@ -24,9 +24,9 @@ There are two script and I will give an explanation to each of them
 - Windows
 - iOS
 - MacOS
-- AndroidASOP
-- AndroidAdmin
-- AndroidEnterprise
+- Android ASOP
+- Android Admin
+- Android Enterprise
 
 ## Supported Azure Environments
 
