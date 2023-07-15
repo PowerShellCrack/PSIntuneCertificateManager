@@ -1,5 +1,5 @@
-# PSIntuneBulkCertificateImporter
-A PowerShell script to import multiple certificates into Intune. 
+# Intune Certificate Manager Scripts
+A couple of PowerShell scripts to manage multiple certificates within Intune. 
 
 ## Why use this?
 If you have ever loaded a chain of certificates for large organizations, you will find it very time consuming importing every root and intermediate certs into Intune. 
