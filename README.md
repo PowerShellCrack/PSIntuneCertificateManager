@@ -23,6 +23,8 @@ There are two scripts:
 
 ![import](.images/import_runexample.png)
 
+![remove](.images/remove_runexample.png)
+
 ## Supported platforms
 
 - Windows
@@ -46,9 +48,10 @@ There are two scripts:
 - **AzureEnvironment** - Options are: _Public, USGov_. USDod is an option but not tested.  Defaults to _Public_
 - **PlatformType** - Options are: _Windows, iOS, MacOS, AndroidASOP, AndroidAdmin, AndroidEnterprise_. Defaults to _Windows_
 - **AssignPolicySet** - NOT READY. Provide the Policy Set or ID to assign the certificates to. 
-- **AssignAADGroup** - Provide the Azure AD Group or ID to assign each certificate to. COMING SOON: If policy set is specified it will check for that assignment as well. 
+- **AssignAADGroup** - Provide the Azure AD Group or ID to assign each certificate to. 
 - **JSONOnly** - Switch. Only imports JSON files in the JSON folder. Ignores any cer file in the Root, Intermediate, and User folders
-- **IncludeExpired** - Switch. Imports certificates that are expired as well. Any JSON that doesn't have the populated description with _Expires:_ will import
+- **IncludeExpired** - Switch. Creates certificates profile that are expired as well.
+> Any JSON that doesn't have the populated description with _Expires:_ will import
 
 ## Remove Options
 
@@ -56,7 +59,7 @@ There are two scripts:
 - **PlatformType** - Options are: _Windows, iOS, MacOS, AndroidASOP, AndroidAdmin, AndroidEnterprise_. Defaults to _Windows_
 - **Exclude** - Specify what certs to exclude. String can include regex pipe for multiple (eg. RootCA1|RootCA2)
 - **JustAssignments** - Switch. Only removes assignment from configuration profile
-- **All** - Switch. Removes all certificates based on platform
+- **All** - Switch. Removes all certificate profiles based on platform
 
 
 # Typical examples to manage cert
@@ -96,6 +99,7 @@ PS> .\Remove-IntuneCertificates.ps1
 
 - Currently only group assignments are working. Policy Set assigning will be coming shortly
 - Any JSON that doesn't have the populated description with _Expires:_ will import
+- Script do not detect filtered assignments or remove filters from assignments 
 
 # DISCLAIMER
 This Sample Code is provided for the purpose of illustration only and is not

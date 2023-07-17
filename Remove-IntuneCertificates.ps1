@@ -436,7 +436,7 @@ If($CertsToRemove.count -gt 0){
                         Write-Host ("{0}..." -f $GroupDetails.DisplayName) -ForegroundColor Yellow
                         Try{
                             $null = Remove-IntuneConfigurationProfileAssignment -ConfigurationId $Cert.Id -AssignmentId $Assignment.Id
-                            Write-Host ("        |---Removed Assignment Id: " -f $Assignment.Id) -ForegroundColor White
+                            Write-Host ("        |---Removed Assignment Id: " -f $Assignment.Id) -ForegroundColor White -NoNewline
                             Write-Host ("{0}" -f $Assignment.Id) -ForegroundColor Green
                         }Catch{
                             Write-Host ("Failed: {0}" -f $_) -ForegroundColor Red
