@@ -9,9 +9,13 @@ I developed this to resolve both of those issues.
 
 ## What it does
 
-There are two script and I will give an explanation to each of them
+There are two scripts:
 - **Import-IntuneCertificates.ps1** - This will import 3 types of certificates (root, intermediate, and user) into their appropriate certificate store. The script will parse cer files within the folders plus JSON files exported from other Intune environment. 
+> NOTE. There are folders this script will look at (but are not in repo). Folders: Root, Intermediate, User and JSON. If you want to import scripts, create these folders and place the respective cert your importing into them
+
 - **Remove-IntuneCertificates.ps1** - This will remove certificates based on expiration. It will export the cert and view it to determine if it expired. 
+
+
 
 ## Screenshots
 
@@ -42,7 +46,7 @@ There are two script and I will give an explanation to each of them
 - **AzureEnvironment** - Options are: _Public, USGov_. USDod is an option but not tested.  Defaults to _Public_
 - **PlatformType** - Options are: _Windows, iOS, MacOS, AndroidASOP, AndroidAdmin, AndroidEnterprise_. Defaults to _Windows_
 - **AssignPolicySet** - NOT READY. Provide the Policy Set or ID to assign the certificates to. 
-- **AssignAADGroup** - NOT READY. Provide the Azure AD Group or ID to assign each certificate to. If policy set is specified it will check for that assignment as well. 
+- **AssignAADGroup** - Provide the Azure AD Group or ID to assign each certificate to. COMING SOON: If policy set is specified it will check for that assignment as well. 
 - **JSONOnly** - Switch. Only imports JSON files in the JSON folder. Ignores any cer file in the Root, Intermediate, and User folders
 - **IncludeExpired** - Switch. Imports certificates that are expired as well. Any JSON that doesn't have the populated description with _Expires:_ will import
 
@@ -51,8 +55,36 @@ There are two script and I will give an explanation to each of them
 - **AzureEnvironment** - Options are: _Public, USGov_. USDod is an option but not tested. Defaults to _Public_
 - **PlatformType** - Options are: _Windows, iOS, MacOS, AndroidASOP, AndroidAdmin, AndroidEnterprise_. Defaults to _Windows_
 - **Exclude** - Specify what certs to exclude. String can include regex pipe for multiple (eg. RootCA1|RootCA2)
-- **JustAssignments** - NOT READY. Switch. Only removes assignment from target
+- **JustAssignments** - Switch. Only removes assignment from configuration profile
 - **All** - Switch. Removes all certificates based on platform
+
+
+# Typical examples to manage cert
+
+Create only _non-expired_ certificate profiles and assign to all **Windows** devices
+```powershell
+PS> .\Import-IntuneCertificates.ps1 -AssignAADGroup 'AllDevices'
+```
+
+Create only _non-expired_ certificate profiles and assign to all **iOS** devices
+```powershell
+PS> .\Import-IntuneCertificates.ps1 -PlatformType iOS -AssignAADGroup 'AllDevices'
+```
+
+Create only _non-expired_ certificate profiles and assign to Azure AD group
+```powershell
+PS> .\Import-IntuneCertificates.ps1 -AssignAADGroup 'SG-AZ-DeviceGrp-TestDevices'
+```
+
+Remove _expired_ certificate profile **assignments** only
+```powershell
+PS> .\Remove-IntuneCertificates.ps1 -JustAssignments
+```
+
+Remove _expired_ certificate profiles
+```powershell
+PS> .\Remove-IntuneCertificates.ps1
+```
 
 
 ## Additional options:
@@ -62,7 +94,7 @@ There are two script and I will give an explanation to each of them
 
 # Notes/Issues
 
-- Currently assignments are not working or ready. These will be coming shortly
+- Currently only group assignments are working. Policy Set assigning will be coming shortly
 - Any JSON that doesn't have the populated description with _Expires:_ will import
 
 # DISCLAIMER
